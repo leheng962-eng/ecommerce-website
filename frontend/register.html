@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create account – ShopNest</title>
+  <script>if (localStorage.theme === 'dark' || (!localStorage.theme && matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.classList.add('dark');</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/tw-config.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100">
+  <div id="app-header"></div>
+  <main class="max-w-md mx-auto px-4 py-12">
+    <div class="card p-8 fade-in">
+      <h1 class="text-2xl font-extrabold">Create your account</h1>
+      <p class="text-slate-500 text-sm mt-1">Join ShopNest in less than a minute.</p>
+      <form id="registerForm" class="mt-6 space-y-4" novalidate>
+        <div><label class="label" for="name">Full name</label><input class="input" id="name" autocomplete="name" required></div>
+        <div><label class="label" for="email">Email</label><input class="input" id="email" type="email" autocomplete="email" required></div>
+        <div><label class="label" for="password">Password (min 6 characters)</label><input class="input" id="password" type="password" autocomplete="new-password" required></div>
+        <div><label class="label" for="confirm">Confirm password</label><input class="input" id="confirm" type="password" autocomplete="new-password" required></div>
+        <p id="error" class="hidden text-sm text-red-600"></p>
+        <button class="btn btn-primary w-full py-3" id="submitBtn">Create account</button>
+      </form>
+      <p class="text-sm text-center mt-5 text-slate-500">Already have an account? <a id="loginLink" href="login.html" class="text-blue-600 font-semibold hover:underline">Log in</a></p>
+    </div>
+  </main>
+  <div id="app-footer"></div>
+  <script src="js/api.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/pages/auth.js"></script>
+</body>
+</html>

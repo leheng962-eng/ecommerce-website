@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Log in – ShopNest</title>
+  <script>if (localStorage.theme === 'dark' || (!localStorage.theme && matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.classList.add('dark');</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/tw-config.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100">
+  <div id="app-header"></div>
+  <main class="max-w-md mx-auto px-4 py-12">
+    <div class="card p-8 fade-in">
+      <h1 class="text-2xl font-extrabold">Welcome back</h1>
+      <p class="text-slate-500 text-sm mt-1">Log in to your account to continue.</p>
+      <form id="loginForm" class="mt-6 space-y-4" novalidate>
+        <div><label class="label" for="email">Email</label><input class="input" id="email" type="email" autocomplete="email" required></div>
+        <div><label class="label" for="password">Password</label><input class="input" id="password" type="password" autocomplete="current-password" required></div>
+        <p id="error" class="hidden text-sm text-red-600"></p>
+        <button class="btn btn-primary w-full py-3" id="submitBtn">Log in</button>
+      </form>
+      <p class="text-sm text-center mt-5 text-slate-500">New here? <a id="regLink" href="register.html" class="text-blue-600 font-semibold hover:underline">Create an account</a></p>
+    </div>
+  </main>
+  <div id="app-footer"></div>
+  <script src="js/api.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/pages/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Product – ShopNest</title>
+  <script>if (localStorage.theme === 'dark' || (!localStorage.theme && matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.classList.add('dark');</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/tw-config.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100">
+  <div id="app-header"></div>
+  <main class="max-w-7xl mx-auto px-4 py-8">
+    <nav class="text-sm text-slate-500 mb-4"><a href="index.html" class="hover:text-blue-600">Home</a> / <a href="shop.html" class="hover:text-blue-600">Shop</a> / <span id="crumb">…</span></nav>
+    <div id="detail"><div class="skeleton h-96"></div></div>
+    <section class="mt-14">
+      <h2 class="text-2xl font-bold mb-4">You may also like</h2>
+      <div id="related" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
+    </section>
+  </main>
+  <div id="app-footer"></div>
+  <script src="js/api.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/pages/product.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Checkout – ShopNest</title>
+  <script>if (localStorage.theme === 'dark' || (!localStorage.theme && matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.classList.add('dark');</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/tw-config.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100">
+  <div id="app-header"></div>
+  <main class="max-w-7xl mx-auto px-4 py-8">
+    <h1 class="text-3xl font-extrabold mb-6">Checkout</h1>
+    <form id="checkoutForm" class="grid lg:grid-cols-[1fr_380px] gap-6" novalidate>
+      <div class="space-y-6">
+        <section class="card p-6">
+          <h2 class="font-bold text-lg mb-4">1. Customer &amp; shipping details</h2>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div><label class="label" for="fullName">Full name *</label><input class="input" id="fullName" required></div>
+            <div><label class="label" for="phone">Phone *</label><input class="input" id="phone" required></div>
+            <div class="sm:col-span-2"><label class="label" for="street">Street address *</label><input class="input" id="street" required></div>
+            <div><label class="label" for="city">City *</label><input class="input" id="city" required></div>
+            <div><label class="label" for="state">State / Province</label><input class="input" id="state"></div>
+            <div><label class="label" for="zip">Postal code</label><input class="input" id="zip"></div>
+            <div><label class="label" for="country">Country *</label><input class="input" id="country" required></div>
+          </div>
+        </section>
+
+        <section class="card p-6">
+          <h2 class="font-bold text-lg mb-4">2. Payment method</h2>
+          <div class="space-y-3 text-sm">
+            <label class="flex items-start gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer">
+              <input type="radio" name="pay" value="cod" checked class="mt-1 accent-blue-600"><span><b>Cash on delivery</b><br><span class="text-slate-500">Pay when your order arrives.</span></span>
+            </label>
+            <label class="flex items-start gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer">
+              <input type="radio" name="pay" value="card" class="mt-1 accent-blue-600"><span><b>Credit / debit card</b><br><span class="text-slate-500">Demo option, no card is charged.</span></span>
+            </label>
+            <label class="flex items-start gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer">
+              <input type="radio" name="pay" value="paypal" class="mt-1 accent-blue-600"><span><b>PayPal</b><br><span class="text-slate-500">Demo option, no payment is taken.</span></span>
+            </label>
+          </div>
+          <p class="mt-4 text-xs text-slate-500">This project does not collect card numbers. To accept real payments, connect a payment provider such as Stripe (see README).</p>
+        </section>
+      </div>
+
+      <aside class="card p-6 h-fit lg:sticky lg:top-24">
+        <h2 class="font-bold text-lg mb-4">3. Order summary</h2>
+        <div id="summary"></div>
+        <p id="formError" class="hidden mt-4 text-sm text-red-600"></p>
+        <button id="placeBtn" class="btn btn-primary w-full mt-5 py-3">Confirm order</button>
+      </aside>
+    </form>
+  </main>
+  <div id="app-footer"></div>
+  <script src="js/api.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/pages/checkout.js"></script>
+</body>
+</html>

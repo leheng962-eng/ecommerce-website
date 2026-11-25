@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shop – ShopNest</title>
+  <script>if (localStorage.theme === 'dark' || (!localStorage.theme && matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.classList.add('dark');</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/tw-config.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100">
+  <div id="app-header"></div>
+
+  <main class="max-w-7xl mx-auto px-4 py-8">
+    <div class="flex flex-wrap items-end justify-between gap-4">
+      <div>
+        <h1 class="text-3xl font-extrabold" id="pageTitle">Shop</h1>
+        <p class="text-slate-500" id="resultInfo">Discover our products</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <button id="filterToggle" class="btn btn-outline lg:hidden">Filters</button>
+        <label class="text-sm text-slate-500 hidden sm:block" for="sort">Sort by</label>
+        <select id="sort" class="input !w-auto">
+          <option value="newest">Newest</option>
+          <option value="popular">Most popular</option>
+          <option value="price_asc">Price: low to high</option>
+          <option value="price_desc">Price: high to low</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="mt-6 grid lg:grid-cols-[250px_1fr] gap-6">
+      <!-- FILTERS -->
+      <aside id="filters" class="hidden lg:block card p-5 h-fit lg:sticky lg:top-24">
+        <h2 class="font-bold mb-3">Search</h2>
+        <input id="searchBox" class="input mb-5" type="search" placeholder="Search products...">
+
+        <h2 class="font-bold mb-3">Categories</h2>
+        <div id="categoryList" class="space-y-1 mb-5 text-sm"></div>
+
+        <h2 class="font-bold mb-3">Price range ($)</h2>
+        <div class="flex items-center gap-2 mb-5">
+          <input id="minPrice" type="number" min="0" placeholder="Min" class="input">
+          <span class="text-slate-400">–</span>
+          <input id="maxPrice" type="number" min="0" placeholder="Max" class="input">
+        </div>
+
+        <label class="flex items-center gap-2 text-sm mb-5"><input type="checkbox" id="onSale" class="w-4 h-4 accent-blue-600"> Only products on sale</label>
+
+        <div class="flex gap-2">
+          <button id="applyBtn" class="btn btn-primary flex-1">Apply</button>
+          <button id="resetBtn" class="btn btn-outline">Reset</button>
+        </div>
+      </aside>
+
+      <!-- PRODUCTS -->
+      <section>
+        <div id="grid" class="grid grid-cols-2 md:grid-cols-3 gap-4"></div>
+        <div id="pagination" class="flex justify-center gap-2 mt-8 flex-wrap"></div>
+      </section>
+    </div>
+  </main>
+
+  <div id="app-footer"></div>
+  <script src="js/api.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/pages/shop.js"></script>
+</body>
+</html>

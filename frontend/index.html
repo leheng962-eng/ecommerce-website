@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ShopNest – Discover. Shop. Enjoy.</title>
+  <!-- Prevents a white flash: apply the saved theme before the page paints -->
+  <script>if (localStorage.theme === 'dark' || (!localStorage.theme && matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.classList.add('dark');</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/tw-config.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100">
+  <div id="app-header"></div>
+
+  <main class="max-w-7xl mx-auto px-4">
+    <!-- HERO SLIDER -->
+    <section class="mt-6 relative overflow-hidden rounded-3xl" id="hero">
+      <div id="slides" class="relative min-h-[360px] md:min-h-[420px]"></div>
+      <div id="dots" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2"></div>
+    </section>
+
+    <!-- PERKS -->
+    <section class="mt-6 card grid grid-cols-2 lg:grid-cols-4 divide-slate-200 dark:divide-slate-800 lg:divide-x">
+      <div class="p-4 flex items-center gap-3"><span class="text-2xl">🚚</span><div><p class="text-sm font-semibold">Free Shipping</p><p class="text-xs text-slate-500">On orders over $50</p></div></div>
+      <div class="p-4 flex items-center gap-3"><span class="text-2xl">🔒</span><div><p class="text-sm font-semibold">Secure Payments</p><p class="text-xs text-slate-500">100% protected</p></div></div>
+      <div class="p-4 flex items-center gap-3"><span class="text-2xl">↩️</span><div><p class="text-sm font-semibold">Easy Returns</p><p class="text-xs text-slate-500">30-day return policy</p></div></div>
+      <div class="p-4 flex items-center gap-3"><span class="text-2xl">🎧</span><div><p class="text-sm font-semibold">24/7 Support</p><p class="text-xs text-slate-500">Always here to help</p></div></div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section class="mt-12">
+      <div class="flex items-end justify-between mb-4">
+        <h2 class="text-2xl font-bold">Popular Categories</h2>
+        <a href="shop.html" class="text-sm font-medium text-blue-600 hover:underline">View all</a>
+      </div>
+      <div id="categories" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4"></div>
+    </section>
+
+    <!-- FEATURED -->
+    <section class="mt-12">
+      <div class="flex items-end justify-between mb-4">
+        <h2 class="text-2xl font-bold">Featured Products</h2>
+        <a href="shop.html" class="text-sm font-medium text-blue-600 hover:underline">View all</a>
+      </div>
+      <div id="featured" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+    </section>
+
+    <!-- OFFER BANNER -->
+    <section class="mt-12 rounded-3xl bg-gradient-to-r from-slate-900 to-blue-800 text-white p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <p class="text-blue-300 font-semibold text-sm uppercase tracking-wide">Limited time offer</p>
+        <h2 class="text-3xl md:text-4xl font-extrabold mt-1">Up to 30% off selected items</h2>
+        <p class="text-slate-300 mt-2">Grab the best deals before they are gone.</p>
+      </div>
+      <a href="shop.html?onSale=true" class="btn bg-white text-blue-700 hover:bg-blue-50 px-6 py-3">Shop deals</a>
+    </section>
+
+    <!-- SPECIAL OFFERS -->
+    <section class="mt-12">
+      <div class="flex items-end justify-between mb-4">
+        <h2 class="text-2xl font-bold">Special Offers</h2>
+        <a href="shop.html?onSale=true" class="text-sm font-medium text-blue-600 hover:underline">View all</a>
+      </div>
+      <div id="offers" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+    </section>
+
+    <!-- BEST SELLERS -->
+    <section class="mt-12">
+      <div class="flex items-end justify-between mb-4">
+        <h2 class="text-2xl font-bold">Best Sellers</h2>
+        <a href="shop.html?sort=popular" class="text-sm font-medium text-blue-600 hover:underline">View all</a>
+      </div>
+      <div id="best" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+    </section>
+  </main>
+
+  <div id="app-footer"></div>
+
+  <!-- Scripts: order matters! api -> store -> ui -> page script -->
+  <script src="js/api.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/pages/home.js"></script>
+</body>
+</html>
